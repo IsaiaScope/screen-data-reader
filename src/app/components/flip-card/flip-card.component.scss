@@ -1,0 +1,159 @@
+$card-ratio: 55 / 85 !default;
+
+$card-width: 420px !default;
+$card-height: $card-width * $card-ratio !default;
+
+$corner-size: 12px !default;
+$icon-size: 80px !default;
+
+// Colours.
+$colour-bg: #333 !default;
+$colour-card-bg: #302f34 !default;
+$colour-gold: #d4cd96 !default;
+
+.card {
+  color: $colour-gold;
+  font-family: "Fira Sans", sans-serif;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 100% 50%;
+  transform-style: preserve-3d;
+  width: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  transition: transform 0.6s cubic-bezier(0.49, 0.23, 0.58, 0.49);
+  &.flipped {
+    transform: translateX(-100%) rotateY(-180deg);
+  }
+}
+
+.card-front,
+.card-back {
+  backface-visibility: hidden;
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(darken($colour-card-bg, 50), 0.3),
+    transparent 1px,
+    rgba(darken($colour-card-bg, 50), 0.3) 2px
+  );
+  background-size: 3px 3px;
+  background-color: $colour-card-bg;
+  border-radius: 1px;
+  box-shadow: 0px -6px 8px 0px rgba(#000, 0.1), 0px 6px 8px 0px rgba(#000, 0.1),
+    6px 0px 8px 0px rgba(#000, 0.1), -6px 0px 8px 0px rgba(#000, 0.1);
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  padding: 5%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+
+  .layer {
+    background: repeating-linear-gradient(
+      135deg,
+      rgba(darken($colour-gold, 50), 0.3),
+      transparent 1px,
+      rgba(darken($colour-gold, 50), 0.3) 2px
+    );
+    background-size: 3px 3px;
+    background-color: $colour-gold;
+    color: $colour-card-bg;
+    height: 100%;
+    position: relative;
+    width: 100%;
+
+    &:after {
+      background: linear-gradient(135deg, rgba(#000, 0.2), transparent);
+      content: "";
+      display: block;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+
+    .top,
+    .bottom {
+      left: 8%;
+      position: absolute;
+      z-index: 1;
+    }
+
+    .top {
+      top: 12%;
+    }
+    .bottom {
+      bottom: 12%;
+    }
+  }
+}
+
+.card-front {
+  .layer {
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+
+    h1 {
+      font-size: 32px;
+      font-weight: 400;
+      letter-spacing: -2px;
+      margin: 0 auto;
+      padding: 6px 18px 4px;
+      text-align: center;
+    }
+
+    .corner {
+      backface-visibility: hidden;
+      border-right: 2px solid $colour-gold;
+      border-top: 2px solid $colour-gold;
+      height: $corner-size;
+      position: absolute;
+      width: $corner-size;
+
+      &:nth-of-type(1) {
+        right: 0;
+        top: 0;
+      }
+
+      &:nth-of-type(2) {
+        left: 0;
+        top: 0;
+        transform: rotateZ(-90deg);
+      }
+
+      &:nth-of-type(3) {
+        bottom: 0;
+        left: 0;
+        transform: rotateZ(180deg);
+      }
+
+      &:nth-of-type(4) {
+        bottom: 0;
+        right: 0;
+        transform: rotateZ(90deg);
+      }
+    }
+  }
+}
+
+.card-wrapper {
+  height: $card-height;
+  max-width: $card-width;
+  margin: 25px auto;
+  perspective: 600px;
+  position: relative;
+  width: 100%;
+  transition: transform 1s;
+}

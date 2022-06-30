@@ -1,0 +1,13 @@
+@mixin hideScrollBar {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+@mixin deskHover {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}

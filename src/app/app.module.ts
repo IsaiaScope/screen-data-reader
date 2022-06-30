@@ -8,7 +8,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { CardComponent } from './components/card/card.component';
 import { ShareComponent } from './components/share/share.component';
 import { CopyClipboardComponent } from './components/copy-clipboard/copy-clipboard.component';
-import { SliderComponent } from './components/slider/slider.component';
+import { TimeToDiscoverComponent } from './pages/time-to-discover/time-to-discover.component';
+import { FlipCardComponent } from './components/flip-card/flip-card.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SliderComponent } from './components/slider/slider.component';
     CardComponent,
     ShareComponent,
     CopyClipboardComponent,
-    SliderComponent,
+    TimeToDiscoverComponent,
+    FlipCardComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
