@@ -1,6 +1,7 @@
 @use "./styles/reset.scss";
 @use "./styles/position.scss";
 @use "./styles/firefly.scss";
+@use "./styles/mixin.scss";
 
 body {
   background: url(https://i.pinimg.com/originals/44/6e/3b/446e3b79395a287ca32f7977dd83b290.jpg);
@@ -8,9 +9,10 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  // [ ] TODO why doesn't work ?
+  @include mixin.hideScrollBar;
 }
 
 .page {
-  height: 100%;
   padding: 25px;
 }
