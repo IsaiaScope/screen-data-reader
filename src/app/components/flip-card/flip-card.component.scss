@@ -7,17 +7,14 @@ $corner-size: 12px !default;
 $icon-size: 80px !default;
 
 // Colours.
-$colour-bg: #333 !default;
+// $colour-bg: #333 !default;
+$colour-bg: #302f34 !default;
 $colour-card-bg: #302f34 !default;
 $colour-gold: #d4cd96 !default;
 
 .card {
   color: $colour-gold;
-  font-family: "Fira Sans", sans-serif;
   height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
   transform-origin: 100% 50%;
   transform-style: preserve-3d;
   width: 100%;
@@ -27,9 +24,12 @@ $colour-gold: #d4cd96 !default;
     transform: translateX(-100%) rotateY(-180deg);
   }
 }
-
 .card-front,
 .card-back {
+  background: #302f348a;
+  box-shadow: 0 -1px 15px 0 rgb(118 119 141 / 20%);
+  backdrop-filter: blur(0.7px);
+
   backface-visibility: hidden;
   background: repeating-linear-gradient(
     135deg,
@@ -37,23 +37,20 @@ $colour-gold: #d4cd96 !default;
     transparent 1px,
     rgba(darken($colour-card-bg, 50), 0.3) 2px
   );
+  // box-shadow: 0px -6px 8px 0px rgba(#000, 0.1), 0px 6px 8px 0px rgba(#000, 0.1),
+  //   6px 0px 8px 0px rgba(#000, 0.1), -6px 0px 8px 0px rgba(#000, 0.1);
+  // background-color: $colour-card-bg;
+
   background-size: 3px 3px;
-  background-color: $colour-card-bg;
   border-radius: 1px;
-  box-shadow: 0px -6px 8px 0px rgba(#000, 0.1), 0px 6px 8px 0px rgba(#000, 0.1),
-    6px 0px 8px 0px rgba(#000, 0.1), -6px 0px 8px 0px rgba(#000, 0.1);
   cursor: pointer;
   height: 100%;
-  left: 0;
   padding: 5%;
-  position: absolute;
-  top: 0;
   width: 100%;
 }
 
 .card-back {
   transform: rotateY(180deg);
-
   .layer {
     background: repeating-linear-gradient(
       135deg,
@@ -67,7 +64,6 @@ $colour-gold: #d4cd96 !default;
     height: 100%;
     position: relative;
     width: 100%;
-
     &:after {
       background: linear-gradient(135deg, rgba(#000, 0.2), transparent);
       content: "";

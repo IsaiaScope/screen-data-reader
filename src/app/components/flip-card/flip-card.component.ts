@@ -5,11 +5,11 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <div class="card-wrapper">
       <div
-        class="card"
+        class="card absolute-t0-l0"
         (click)="flipped = !flipped"
         [ngClass]="{ flipped: flipped }"
       >
-        <div class="card-front">
+        <div class="card-front absolute-t0-l0">
           <div class="layer">
             <h1>Lubos</h1>
             <div class="corner"></div>
@@ -18,7 +18,7 @@ import { Component, OnInit } from '@angular/core';
             <div class="corner"></div>
           </div>
         </div>
-        <div class="card-back">
+        <div class="card-back absolute-t0-l0">
           <div class="layer">
             <div class="top">
               <h2>Chief Idea Officer</h2>

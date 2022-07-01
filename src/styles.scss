@@ -9,6 +9,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  font-family: "Fresca", sans-serif;
   // [ ] TODO why doesn't work ?
   @include mixin.hideScrollBar;
 }
