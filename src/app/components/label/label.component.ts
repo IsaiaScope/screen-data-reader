@@ -3,10 +3,18 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-label',
   template: `
-    <label>{{ labelName }}: </label>
-    <span>{{ value }}</span>
+    <div class="label">
+      <label>{{ labelName }}: </label>
+      <span>{{ value }}</span>
+    </div>
   `,
-  styles: [],
+  styles: [
+    `
+      .label {
+        margin-bottom: 0.5em;
+      }
+    `,
+  ],
 })
 export class LabelComponent implements OnInit {
   @Input() labelName = '';

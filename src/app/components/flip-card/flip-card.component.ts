@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { LabelItem } from 'src/app/pages/home/home-helper/home-const';
 
 @Component({
   selector: 'app-flip-card',
@@ -9,27 +10,19 @@ import { Component, OnInit } from '@angular/core';
         (click)="flipped = !flipped"
         [ngClass]="{ flipped: flipped }"
       >
-        <div class="card-front absolute-t0-l0">
-          <div class="layer">
-            <h1>Lubos</h1>
-            <div class="corner"></div>
-            <div class="corner"></div>
-            <div class="corner"></div>
-            <div class="corner"></div>
+        <div class="card-front absolute-t0-l0" [style.backgroundImage]="'url('+ imagSource +')'">
+          <div class="layer grid-center">
+            <app-txt-v1 [secTitle]="secTitle"></app-txt-v1>
           </div>
         </div>
-        <div class="card-back absolute-t0-l0">
-          <div class="layer">
-            <div class="top">
-              <h2>Chief Idea Officer</h2>
-            </div>
-            <div class="bottom">
-              <a href="">pino</a><br />
-              <a href="">pino</a><br />
-              <a href="">pino</a><br />
-              <a href="">pino</a><br />
-              <a href="">pino</a><br />
-            </div>
+        <div class="card-back absolute-t0-l0" [style.backgroundImage]="'url('+ imagSource +')'">
+          <div class="layer grid-center">
+              <ng-container *ngFor="let item of props">
+                <app-label
+                  [labelName]="item.label"
+                  [value]="item.value"
+                ></app-label>
+              </ng-container>
           </div>
         </div>
       </div>
@@ -39,7 +32,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlipCardComponent implements OnInit {
   flipped = false;
-
+  @Input() secTitle = '';
+  @Input() props: LabelItem[] = [];
+  @Input() imagSource = '';
   constructor() {}
 
   ngOnInit(): void {}

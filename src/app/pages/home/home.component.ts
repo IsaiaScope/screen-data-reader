@@ -6,12 +6,13 @@ import { getWindowData } from './home-helper/home-methods';
   selector: 'app-home',
   template: `
     <div class="page">
-      <!-- <app-card
-        *ngFor="let item of keys"
+      <app-flip-card
+        *ngFor="let item of keys; let i = index"
         [secTitle]="_data[item].secTitle"
         [props]="_data[item].props"
-      ></app-card> -->
-      <app-flip-card *ngFor="let item of keys"></app-flip-card>
+        [imagSource]="'../../../assets/imgs/demon-slayer_' + i + '.jpg'"
+      ></app-flip-card>
+      <app-share></app-share>
     </div>
   `,
   styles: [``],
@@ -20,12 +21,7 @@ export class HomeComponent implements OnInit {
   keys = Object.keys(LABELS);
   _data = this.calcValues(LABELS);
 
-  ngOnInit(): void {
-    console.log(screen);
-    console.log(navigator);
-    console.log(this.keys);
-    console.log(this._data);
-  }
+  ngOnInit(): void {}
 
   calcValues(objData: LabelData) {
     const newData: Record<string, { secTitle: string; props: LabelItem[] }> =

@@ -32,8 +32,8 @@ const L: LabelData = {
   viewPort: {
     secTitle: 'View Port',
     props: [
-      { label: 'Width', value: 'innerWidth' },
-      { label: 'Height', value: 'innerHeight' },
+      { label: 'VP Width', value: 'innerWidth' },
+      { label: 'VP Height', value: 'innerHeight' },
     ],
   },
   screenSize: {
